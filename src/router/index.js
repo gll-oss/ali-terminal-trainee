@@ -1,22 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
+
+// 运动模块
+const sportRoutes = [
+  {
+    path: "/sport",
+    name: 'sport',
+    component: () => import('@/views/sport/index.vue')
+  }
+]
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'weather',
+    component: () => import('@/views/weather.vue')
   },
+  ...sportRoutes,
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/my',
+    name: 'my',
+    meta: {
+      hiddenHeader: true
+    },
+    component: () => import('@/views/my.vue')
   }
 ]
 

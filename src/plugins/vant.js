@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import { Tabbar, TabbarItem, NavBar, Cell, CellGroup, Icon, Grid, GridItem, Image as VanImage } from 'vant'
+import { Tabbar, TabbarItem, NavBar, Cell, CellGroup, Icon, Grid, GridItem, Image as VanImage, Dialog, RadioGroup, Radio, Calendar, Area, Field, Uploader } from 'vant'
 import 'vant/lib/index.css'
 
 const components = [
@@ -12,7 +12,14 @@ const components = [
   Icon,
   Grid,
   GridItem,
-  VanImage
+  VanImage,
+  Dialog,
+  RadioGroup,
+  Radio,
+  Calendar,
+  Area,
+  Field,
+  Uploader
 ]
 
 components.forEach(component => {

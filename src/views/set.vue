@@ -69,22 +69,43 @@
     </van-cell-group>
     <div style="margin-bottom: 7px" />
     <van-cell-group>
-      <van-cell title="退出登录" size="large" title-style="font-family: 'Arial Normal', 'Arial'; line-height: 30px;text-align: center" />
+      <van-cell title="退出登录" @click="showLogin" size="large" title-style="font-family: 'Arial Normal', 'Arial'; line-height: 30px;text-align: center" />
     </van-cell-group>
+<!--    <van-dialog v-model="showLogin" title="个性签名" show-cancel-button>-->
+<!--      <van-cell-group inset>-->
+<!--        <van-field v-model="value" style="margin-left: 15px" label="个性签名" placeholder="请输入个性签名" />-->
+<!--      </van-cell-group>-->
+<!--    </van-dialog>-->
   </div>
 </template>
 
 <script>
+  import { Dialog } from 'vant'
 export default {
   data() {
     return {
   username:'aliyun',
-      userLabel: '运动健将'
+      userLabel: '运动健将',
     }
+  },
+  components: {
+    [Dialog.Component.name]: Dialog.Component,
   },
   methods:{
     onBack() {
       this.$router.push({ path: '/my' })
+    },
+    showLogin() {
+      Dialog.confirm({
+        message:
+          '您确定要退出的登录吗？',
+      })
+        .then(() => {
+          // on confirm
+        })
+        .catch(() => {
+          // on cancel
+        });
     }
   }
 }

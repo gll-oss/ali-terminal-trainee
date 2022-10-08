@@ -42,6 +42,14 @@ const routes = [
       hiddenHeader: true
     },
     component: () => import('@/views/set.vue')
+  },
+  {
+    path: '/more',
+    name: 'more',
+    meta: {
+      hiddenHeader: true
+    },
+    component: () => import('@/views/more.vue')
   }
 ]
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="weather-box">
+  <div>
     <!-- 我的界面 -->
     <div style="width: 100%; height: 600px">
       <div style="width: 100%; height: 20%">
@@ -21,7 +21,7 @@
                 <div style="display: flex; justify-content: flex-start;">
                   <img src="@/assets/icons/person.png" style="height: 30px; width: 30px; float: left; margin-top: 20px; margin-right: 15px; margin-left: 10px "/>
                   <div style="float: left">
-                    <p style="font-style: normal; font-size: 20px;" @click="onMyMessage">个人信息</p>
+                    <p style="font-style: normal; font-size: 20px;">个人信息</p>
                   </div>
                 </div>
               </div></td>
@@ -32,7 +32,7 @@
                 <div style="display: flex; justify-content: flex-start;">
                   <img src="@/assets/icons/set.png" style="height: 30px; width: 30px; float: left; margin-top: 20px; margin-right: 15px; margin-left: 10px "/>
                   <div style="float: left">
-                  <p style="font-style: normal; font-size: 20px;" @click="onSet">设置</p>
+                  <p style="font-style: normal; font-size: 20px;">设置</p>
                   </div>
                 </div>
               </div></td>
@@ -49,18 +49,9 @@ export default {
   data() {
     return {
   username:'aliyun',
-      userLabel: '运动健将',
-      weatherData: {}
+      userLabel: '运动健将'
     }
   },
-  methods: {
-    onMyMessage() {
-      this.$router.push({ path: '/mymessage' })
-    },
-    onSet() {
-      this.$router.push({ path: '/set' })
-    }
-  }
 }
 </script>
 <style lang="less" scoped>
@@ -95,15 +86,5 @@ export default {
     width: 70px;
     height: 30px;
     /*border: 1px solid #333;*/
-  }
-  .weather-box {
-    position: absolute;
-    top: 0;
-    box-sizing: border-box;
-    padding-left: (12 / 3.75vw);
-    padding-right: (12 / 3.75vw);
-    width: 100%;
-    height: 100vh;
-    background-color: #efefef;
   }
 </style>

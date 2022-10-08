@@ -1,13 +1,17 @@
 <template>
-  <div class="weather-box">
-    <!-- 我的界面 -->
-    <div style="width: 100%; height: 600px">
-      <div style="width: 100%; height: 20%">
-        <img src="@/assets/icons/head.jpeg" style="width: 100px; height: 100px; margin: 20px 20px; float: left"/>
-        <div style="float: left">
-          <h2 style=" margin-top: 40px">{{username}}</h2>
-          <h3>{{userLabel}}</h3>
-        </div>
+  <div>
+    <!-- 个人信息的界面 -->
+<!--    <div style="width: 100%; height: 600px">-->
+      <van-cell-group>
+        <van-cell title="单元格" value="内容" />
+        <van-cell title="单元格" value="内容" label="描述信息" />
+      </van-cell-group>
+<!--      <div style="width: 100%; height: 20%">-->
+<!--        <img src="@/assets/icons/head.jpeg" style="width: 100px; height: 100px; margin: 20px 20px; float: left"/>-->
+<!--        <div style="float: left">-->
+<!--          <h2 style=" margin-top: 40px">{{username}}</h2>-->
+<!--          <h3>{{userLabel}}</h3>-->
+<!--        </div>-->
         <div style="text-align:center;margin-top:30px; margin-bottom: 10px" />
         <table
           style="width: 100%"
@@ -19,9 +23,20 @@
             <td class="value" colspan="5">
               <div style="display: flex; flex-direction: column;">
                 <div style="display: flex; justify-content: flex-start;">
+                  <img src="@/assets/icons/head.jpeg" style="width: 50px; height: 50px; float: left"/>
+                </div>
+                  <div style="float: right; justify-content: flex-end;">
+                    <p style="font-style: normal; font-size: 20px;">{{username}}</p>
+                  </div>
+              </div></td>
+          </tr>
+          <tr style="border: 1px solid #ddd;">
+            <td class="value" colspan="5">
+              <div style="display: flex; flex-direction: column;">
+                <div style="display: flex; justify-content: flex-start;">
                   <img src="@/assets/icons/person.png" style="height: 30px; width: 30px; float: left; margin-top: 20px; margin-right: 15px; margin-left: 10px "/>
                   <div style="float: left">
-                    <p style="font-style: normal; font-size: 20px;" @click="onMyMessage">个人信息</p>
+                    <p style="font-style: normal; font-size: 20px;">个人信息</p>
                   </div>
                 </div>
               </div></td>
@@ -32,16 +47,15 @@
                 <div style="display: flex; justify-content: flex-start;">
                   <img src="@/assets/icons/set.png" style="height: 30px; width: 30px; float: left; margin-top: 20px; margin-right: 15px; margin-left: 10px "/>
                   <div style="float: left">
-                  <p style="font-style: normal; font-size: 20px;" @click="onSet">设置</p>
+                  <p style="font-style: normal; font-size: 20px;">设置</p>
                   </div>
                 </div>
               </div></td>
           </tr>
         </table>
       </div>
-      </div>
 
-  </div>
+<!--  </div>-->
 </template>
 
 <script>
@@ -49,18 +63,9 @@ export default {
   data() {
     return {
   username:'aliyun',
-      userLabel: '运动健将',
-      weatherData: {}
+      userLabel: '运动健将'
     }
   },
-  methods: {
-    onMyMessage() {
-      this.$router.push({ path: '/mymessage' })
-    },
-    onSet() {
-      this.$router.push({ path: '/set' })
-    }
-  }
 }
 </script>
 <style lang="less" scoped>
@@ -95,15 +100,5 @@ export default {
     width: 70px;
     height: 30px;
     /*border: 1px solid #333;*/
-  }
-  .weather-box {
-    position: absolute;
-    top: 0;
-    box-sizing: border-box;
-    padding-left: (12 / 3.75vw);
-    padding-right: (12 / 3.75vw);
-    width: 100%;
-    height: 100vh;
-    background-color: #efefef;
   }
 </style>

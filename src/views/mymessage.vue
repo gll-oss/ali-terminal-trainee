@@ -1,63 +1,27 @@
 <template>
   <div>
     <!-- 个人信息的界面 -->
-<!--    <div style="width: 100%; height: 600px">-->
       <van-cell-group>
-        <van-cell title="单元格" value="内容" />
-        <van-cell title="单元格" value="内容" label="描述信息" />
+        <van-cell title="个人信息" title-style="text-align: center" icon="arrow-left" size="large" @click="onBack"/>
       </van-cell-group>
-<!--      <div style="width: 100%; height: 20%">-->
-<!--        <img src="@/assets/icons/head.jpeg" style="width: 100px; height: 100px; margin: 20px 20px; float: left"/>-->
-<!--        <div style="float: left">-->
-<!--          <h2 style=" margin-top: 40px">{{username}}</h2>-->
-<!--          <h3>{{userLabel}}</h3>-->
-<!--        </div>-->
-        <div style="text-align:center;margin-top:30px; margin-bottom: 10px" />
-        <table
-          style="width: 100%"
-          class="table table-striped table-bordered"
-          align="center"
-          valign="center"
-        >
-          <tr style="border: 1px solid #ddd;">
-            <td class="value" colspan="5">
-              <div style="display: flex; flex-direction: column;">
-                <div style="display: flex; justify-content: flex-start;">
-                  <img src="@/assets/icons/head.jpeg" style="width: 50px; height: 50px; float: left"/>
-                </div>
-                  <div style="float: right; justify-content: flex-end;">
-                    <p style="font-style: normal; font-size: 20px;">{{username}}</p>
-                  </div>
-              </div></td>
-          </tr>
-          <tr style="border: 1px solid #ddd;">
-            <td class="value" colspan="5">
-              <div style="display: flex; flex-direction: column;">
-                <div style="display: flex; justify-content: flex-start;">
-                  <img src="@/assets/icons/person.png" style="height: 30px; width: 30px; float: left; margin-top: 20px; margin-right: 15px; margin-left: 10px "/>
-                  <div style="float: left">
-                    <p style="font-style: normal; font-size: 20px;">个人信息</p>
-                  </div>
-                </div>
-              </div></td>
-          </tr>
-          <tr>
-            <td class="value" colspan="5">
-              <div style="display: flex; flex-direction: column;">
-                <div style="display: flex; justify-content: flex-start;">
-                  <img src="@/assets/icons/set.png" style="height: 30px; width: 30px; float: left; margin-top: 20px; margin-right: 15px; margin-left: 10px "/>
-                  <div style="float: left">
-                  <p style="font-style: normal; font-size: 20px;">设置</p>
-                  </div>
-                </div>
-              </div></td>
-          </tr>
-        </table>
+    <div style="margin-bottom: 10px" />
+    <van-cell-group>
+        <van-cell title="头像" title-style="font-family: 'Arial Normal', 'Arial'; line-height: 30px;" size="large" is-link>
+          <!-- 使用 right-icon 插槽来自定义右侧图标 -->
+          <template #right-icon>
+            <van-icon name="https://fastly.jsdelivr.net/npm/@vant/assets/icon-demo.png" class="head-icon" size="30" />
+<!--            <van-icon name="search" class="search-icon" />-->
+          </template>
+        </van-cell>
+      <van-cell title="昵称" size="large" title-style="font-family: 'Arial Normal', 'Arial'; line-height: 30px;" value-style="font-family: 'Arial Normal', 'Arial'; line-height: 30px;"  value="aliyun" is-link />
+      <van-cell title="手机号码" size="large" title-style="font-family: 'Arial Normal', 'Arial'; line-height: 30px;" value-style="font-family: 'Arial Normal', 'Arial'; line-height: 30px;"  value="15656555639" is-link />
+      <van-cell title="更多" size="large" title-style="font-family: 'Arial Normal', 'Arial'; line-height: 30px;" is-link />
+
+    </van-cell-group>
       </div>
 
 <!--  </div>-->
 </template>
-
 <script>
 export default {
   data() {
@@ -66,9 +30,26 @@ export default {
       userLabel: '运动健将'
     }
   },
+  methods:{
+    onBack() {
+      this.$router.push({ path: '/my' })
+    }
+  }
 }
 </script>
 <style lang="less" scoped>
+  .custom-title {
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .head-icon {
+    font-size: 16px;
+    line-height: inherit;
+  }
+  .search-icon {
+    font-size: 16px;
+    line-height: inherit;
+  }
   .table {
     border-collapse: collapse;
     border-spacing: 0;
